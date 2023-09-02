@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Cliente.css";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { recargarPagina, salir, verificar} from "../modulos/Funciones";
+import { recargarPagina, salir, verificar } from "../modulos/Funciones";
 
 export default function Verificador() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Verificador() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("http://localhost:8081/cliente/verificado", {
+        .get("/cliente/verificado", {
           params: {
             consulta: userData,
           },

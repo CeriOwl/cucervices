@@ -3,17 +3,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Item.css";
 import Cookies from "js-cookie";
 import axios from "axios";
-import {muestra, salir} from "./Funciones";
+import { muestra, salir } from "./Funciones";
 
 function Item2() {
-const {id} = useParams();
+  const { id } = useParams();
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("http://localhost:8081/home-ser/servicios", {
+        .get("/home-ser/servicios", {
           params: {
             consulta: id,
           },

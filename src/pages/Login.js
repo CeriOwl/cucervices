@@ -15,7 +15,7 @@ export const Login = () => {
 
   const navigate = useNavigate();
   const [error, setError] = useState({});
-  const handleInput = (event) => { 
+  const handleInput = (event) => {
     setData((prev) => ({ ...prev, [event.target.name]: [event.target.value] }));
   };
 
@@ -25,7 +25,7 @@ export const Login = () => {
     setError(DataLog(data));
     if (error.usuario === "" && error.contra === "") {
       axios
-        .post("http://localhost:8081/login", data)
+        .post("/login", data)
         .then((res) => {
           if (res.data !== "Error") {
             Cookies.set('userData', JSON.stringify(data.usuario));
@@ -34,9 +34,8 @@ export const Login = () => {
             const cookieExpirationDays = 1;
             const cookieValue = `${encodeURIComponent(
               "authToken"
-            )}=${encodeURIComponent(authToken)}; max-age=${
-              cookieExpirationDays * 24 * 60 * 60
-            }`;
+            )}=${encodeURIComponent(authToken)}; max-age=${cookieExpirationDays * 24 * 60 * 60
+              }`;
             document.cookie = cookieValue;
             navigate("/home-ventas");
           } else {
