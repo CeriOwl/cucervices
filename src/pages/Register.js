@@ -21,10 +21,10 @@ export const Register = () => {
     event.preventDefault();
     setError(DataReg(data));
     //console.log(error)
-    if(error.usuario === undefined && error.correo === undefined && error.contra=== undefined 
+    if (error.usuario === undefined && error.correo === undefined && error.contra === undefined
     ) {
       axios
-        .post("http://localhost:8081/reg", data)
+        .post("/reg", data)
         .then((res) => {
           navigate('/')
         })

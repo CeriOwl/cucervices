@@ -3,10 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Item.css";
 import Cookies from "js-cookie";
 import axios from "axios";
-import {muestra, salir} from "./Funciones";
+import { muestra, salir } from "./Funciones";
 
 function Item() {
-const {id} = useParams();
+  const { id } = useParams();
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const {id} = useParams();
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("http://localhost:8081/home-ventas/producto", {
+        .get("/home-ventas/producto", {
           params: {
             consulta: id,
           },

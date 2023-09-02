@@ -20,7 +20,7 @@ function Cliente() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("http://localhost:8081/home-ventas", {
+        .get("/home-ventas", {
           params: {
             consulta: data,
           },
@@ -75,9 +75,9 @@ function Cliente() {
           </button>
         </div>
         <div className="resultados">
-         <input onChange={handleInput} type="text" id="searchInput" placeholder="Buscar..." />
-        {mapeo_v(result)
-        }</div>
+          <input onChange={handleInput} type="text" id="searchInput" placeholder="Buscar..." />
+          {mapeo_v(result)
+          }</div>
       </div>
     </div>
   );

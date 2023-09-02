@@ -28,17 +28,17 @@ export default function Publicar() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     const data2 = new FormData();
     data2.append("user", data.usuario)
     data2.append("titu", data.titulo)
     data2.append("desc", data.descripcion)
-    data2.append("opci", data.opc) 
+    data2.append("opci", data.opc)
     data2.append("imagen", imagenSeleccionada)
-    
+
     console.log(data);
     axios
-      .post("http://localhost:8081/cliente/crear", data2) 
+      .post("/cliente/crear", data2)
       .then((res) => {
         window.location.reload();
       })
@@ -52,7 +52,7 @@ export default function Publicar() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("http://localhost:8081/cliente/crear", {
+        .get("/cliente/crear", {
           params: {
             consulta: userData,
           },
