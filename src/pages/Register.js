@@ -24,7 +24,7 @@ export const Register = () => {
     if (error.usuario === undefined && error.correo === undefined && error.contra === undefined
     ) {
       axios
-        .post("/reg", data)
+        .post("http://localhost:8081/reg", data)
         .then((res) => {
           navigate('/')
         })

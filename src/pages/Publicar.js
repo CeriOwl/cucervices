@@ -38,7 +38,7 @@ export default function Publicar() {
 
     console.log(data);
     axios
-      .post("/cliente/crear", data2)
+      .post("http://localhost:8081/cliente/crear", data2)
       .then((res) => {
         window.location.reload();
       })
@@ -52,7 +52,7 @@ export default function Publicar() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/cliente/crear", {
+        .get("http://localhost:8081/cliente/crear", {
           params: {
             consulta: userData,
           },

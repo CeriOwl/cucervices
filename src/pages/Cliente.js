@@ -20,7 +20,7 @@ function Cliente() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/home-ventas", {
+        .get("http://localhost:8081/home-ventas", {
           params: {
             consulta: data,
           },

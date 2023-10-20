@@ -36,7 +36,7 @@ function Ventas() {
     data2.append("nusuar", sessionStorage.getItem("nu"));
     data2.append("image", imagenSeleccionada);
     axios
-      .post("/cliente", data2)
+      .post("http://localhost:8081/cliente", data2)
       .then((res) => {
         if (usuarioC !== "") {
           Cookies.set("userData", JSON.stringify(usuarioC));
@@ -50,7 +50,7 @@ function Ventas() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/cliente", {
+        .get("http://localhost:8081/cliente", {
           params: {
             consulta: userData,
           },

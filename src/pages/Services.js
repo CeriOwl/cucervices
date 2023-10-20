@@ -18,7 +18,7 @@ function Services() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/home-ser", {
+        .get("http://localhost:8081/home-ser", {
           params: {
             consulta: data,
           },

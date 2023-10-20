@@ -12,7 +12,7 @@ export default function Verificador() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/cliente/verificado", {
+        .get("http://localhost:8081/cliente/verificado", {
           params: {
             consulta: userData,
           },

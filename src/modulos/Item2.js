@@ -13,7 +13,7 @@ function Item2() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/home-ser/servicios", {
+        .get("http://localhost:8081/home-ser/servicios", {
           params: {
             consulta: id,
           },

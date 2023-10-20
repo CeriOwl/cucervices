@@ -14,7 +14,7 @@ function Item() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
-        .get("/home-ventas/producto", {
+        .get("http://localhost:8081/home-ventas/producto", {
           params: {
             consulta: id,
           },

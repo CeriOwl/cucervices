@@ -20,12 +20,11 @@ export const Login = () => {
   };
 
   const handleSubmit = (event) => {
-
     event.preventDefault();
     setError(DataLog(data));
     if (error.usuario === "" && error.contra === "") {
       axios
-        .post("/login", data)
+        .post("http://localhost:8081/login", data)
         .then((res) => {
           /*En caso de que los datos no regresen un error, nos dara acceso a la siguiente pestaña 
           que es la de "Ventas" y su direccion es /home-ventas*/
