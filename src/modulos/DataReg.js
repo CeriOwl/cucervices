@@ -1,6 +1,6 @@
 export function DataReg(datos) {
   let error = [];
-
+/*Este Archivo esta creado para generar las comprobaciones del Register*/
   //Validacion del usuario
   if (datos.usuario === "") {
     error.usuario = "El usuario no puede estar vacio";

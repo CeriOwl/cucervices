@@ -29,12 +29,15 @@ export const Login = () => {
           /*En caso de que los datos no regresen un error, nos dara acceso a la siguiente pestaña 
           que es la de "Ventas" y su direccion es /home-ventas*/
           if (res.data !== "Error") {
+            //El primer cookie se encargar de almacenar la informacion importante y unica del usuario, será mejor usar el ID que es unico
             Cookies.set('userData', JSON.stringify(data.usuario));
             Cookies.set('verificado', JSON.stringify(res.data));
             const authToken = "valido";
             const cookieExpirationDays = 1;
             const cookieValue = `${encodeURIComponent(
               "authToken"
+              /*Esto basicamente es para poder generar un tiempo limite en el
+              que el usuario puede recargar la pagina sin iniciar sesion (Puede descartarse)  */
             )}=${encodeURIComponent(authToken)}; max-age=${cookieExpirationDays * 24 * 60 * 60
               }`;
             document.cookie = cookieValue;

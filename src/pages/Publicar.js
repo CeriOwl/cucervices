@@ -71,12 +71,15 @@ export default function Publicar() {
       window.location.assign("/");
     }
   }, [userData]);
+  //Funcion para ir a la pestaña de "Servicios"
   function irSer() {
     navigate("/home-ser");
   }
+  //Funcion para ir a ver la informacion del usuario
   function irCliente() {
     navigate("/cliente");
   }
+  //Funcion para ir a la pestaña de "Ventas"
   function irVentas() {
     navigate("/home-ventas");
   }

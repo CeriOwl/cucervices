@@ -1,9 +1,8 @@
 
 export function DataLog(data){
+    /*Este Archivo esta creado para generar las comprobaciones del Login*/
     let error=[]
-
     //const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
     if(data.usuario ===""){
         error.usuario = "El usuario no puede estar vacio"
 

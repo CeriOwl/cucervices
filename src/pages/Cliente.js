@@ -19,6 +19,8 @@ function Cliente() {
   useEffect(() => {
     const authToken = Cookies.get("authToken");
     if (authToken) {
+      /*Se obitene la informacion de la pagina de ventas, esto genera las publicaciones ya realizadas 
+      por todos los usuarios*/
       axios
         .get("http://localhost:8081/home-ventas", {
           params: {
@@ -37,10 +39,11 @@ function Cliente() {
       window.location.assign("/");
     }
   }, [data]);
-
+  //Funcion para ir a la pestaña de "Servicios"
   function irSer() {
     navigate("/home-ser");
   }
+  //Funcion para ir a la informacion del usuario
   function irCliente() {
     navigate("/cliente");
   }

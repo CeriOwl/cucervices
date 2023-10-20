@@ -16,7 +16,7 @@ function Item() {
       axios
         .get("http://localhost:8081/home-ventas/producto", {
           params: {
-            consulta: id,
+            consulta: id, //se obtiene el ID del producto de ventas a detallar
           },
         })
         .then((response) => {
@@ -31,14 +31,15 @@ function Item() {
       window.location.assign("/");
     }
   }, [id]);
-
+  //funcion para ir a la pestaña de servicios
   function irSer() {
     navigate("/home-ser");
   }
+  //Funcion para ir a la pestaña de la informacion del usuario
   function irCliente() {
     navigate("/cliente");
   }
-
+  //funcion para ir a la pestaña de ventas
   function irVentas() {
     navigate("/home-ventas");
   }

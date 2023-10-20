@@ -18,6 +18,8 @@ function Services() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
+      /*Se obtiene la informacion de las publicaciones realizadas en la base de datos
+      relacionada a los servicios*/
         .get("http://localhost:8081/home-ser", {
           params: {
             consulta: data,
@@ -31,14 +33,15 @@ function Services() {
           console.error("No se recibieron los datos: ", error);
         });
     } else {
-      alert("No has iniciado sesion");
-      window.location.assign("/");
+      alert("No has iniciado sesion");  //En caso de ir directamente a otra pestaña sin iniciar sesion
+      window.location.assign("/");      //Se le regresará a la ventana de Login
     }
   }, [data]);
-
+  //Funcion para ir a la ventana de Ventas
   function irVentas() {
     navigate("/home-ventas");
   }
+  //Funcion para ir a ver la informacion del usuario
   function irCliente() {
     navigate("/cliente");
   }

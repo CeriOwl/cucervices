@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import "../styles/Funciones.css";
 import basic from "../images/basic.png";
 
+
+/*Esta funcion esta creada para generar un enlace y que pueda cargar la imagen con un
+buffer de informacio*/
 export function URL_img(buffer) {
-  //console.log(buffer)
   if (buffer !== null && buffer!==undefined ) {
     var arrayBufferView = new Uint8Array(buffer.data);
     var blob = new Blob([arrayBufferView], { type: "image/png" });
@@ -17,13 +19,16 @@ export function URL_img(buffer) {
 export function recargarPagina() {
   window.location.reload(); // Recargar la página actual
 }
-
+/*Esta funcion esta creada para dirigir a la pestaña delo login
+asi como limpiar las cookies y la informacion extra*/
 export function salir() {
   window.location.assign("/");
   Cookies.remove("userData");
   sessionStorage.clear();
 }
-
+/*Esta funcion esta creada para* hacer un prototipo de la informacion a mostrar en 
+las pestañas de ventas y servicios, en ambos casos se muestra el usuario, el titulo 
+de la publicacion y alguna breve descripcion*/
 export function muestra(result) {
   return (
     <div className="amplio">
@@ -40,7 +45,7 @@ export function muestra(result) {
     </div>
   );
 }
-
+/*Esta funcion esta creada para generar el listado de las ventas*/
 export function mapeo_v(result) {
   return (
     <div className="filas">
@@ -61,7 +66,7 @@ export function mapeo_v(result) {
     </div>
   );
 }
-
+/*Esta funcion esta creada para generar el listado de los servicios*/
 export function mapeo_s(result) {
   return (
     <div className="filas">
@@ -82,7 +87,8 @@ export function mapeo_s(result) {
     </div>
   );
 }
-
+/*Esta funcion esta creada para comprobar si el usuario está verificado o no
+ya que de ello depende alguna informacion mostrada*/
 export function verificador(valor) {
   if (valor === "0") {
     return <Link to={"/cliente/verificado"}>Deseo Vender</Link>;
@@ -95,7 +101,8 @@ export function verificador(valor) {
     );
   }
 }
-
+/*Esta funcion esta creada para que un usuario pueda verificar su cuenta
+de aqui es donde debera aplicarse la inteligencia artificial*/
 export function verificar() {
   const usuario = sessionStorage.getItem("user");
   return (
@@ -114,7 +121,8 @@ export function verificar() {
     </div>
   );
 }
-
+/*Esta funcion esta creada para darnos una plantilla tipo formulario para poder generar 
+las publicaciiones y de manera automatica se acomodaran en la base de datos*/
 export function Articulo() {
   const usuario = sessionStorage.getItem("user");
   return (

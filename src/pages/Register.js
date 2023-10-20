@@ -19,14 +19,16 @@ export const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    //Se valida que los datos no cuenten con algun error 
     setError(DataReg(data));
-    //console.log(error)
+    //Se valida que los datos esten llenos
     if (error.usuario === undefined && error.correo === undefined && error.contra === undefined
     ) {
       axios
+      //Genera un nuevo usuario ya habiendo realizado las comprobaciones
         .post("http://localhost:8081/reg", data)
         .then((res) => {
-          navigate('/')
+          navigate('/') //Regresa al Login
         })
         .catch((err) => console.log(err));
     }

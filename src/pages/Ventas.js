@@ -30,6 +30,7 @@ function Ventas() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    /*Se genera un Formata para actualizar algun dato*/
     const data2 = new FormData();
     data2.append("correoN", correoC);
     data2.append("usuarioN", usuarioC);
@@ -50,6 +51,7 @@ function Ventas() {
     const authToken = Cookies.get("authToken");
     if (authToken) {
       axios
+      //Se obtiene la informacion del usuario
         .get("http://localhost:8081/cliente", {
           params: {
             consulta: userData,
@@ -68,18 +70,20 @@ function Ventas() {
           console.error("No se recibieron los datos: ", error);
         });
     } else {
-      alert("No has iniciado sesion");
+      alert("No has iniciado sesion"); //Al no iniciar sesion, se le regresa al Login
       window.location.assign("/");
     }
   }, []);
-
+  //Funcion para ir a la pestaña de Servicios
   function irSer() {
     navigate("/home-ser");
   }
+  //Funcion para ir a la pestaña de Ventas
   function irVentas() {
     navigate("/home-ventas");
   }
-
+  /*Se obtiene el usuario y el correo para poder mostrarlos como 
+  espacio a rellenar en el formulario*/
   const usuario = sessionStorage.getItem("user");
   const correo = sessionStorage.getItem("gmail");
   return (
