@@ -5,44 +5,33 @@ import axios from "axios";
 import { DataLog } from "../modulos/DataLog";
 import Cookies from 'js-cookie';
 
-export const Login = () => {
 
+export const Login = () => {
+  
   sessionStorage.clear();
   const [data, setData] = useState({
     usuario: "",
-    contra: "",
+    contra: ""
   });
 
   const navigate = useNavigate();
   const [error, setError] = useState({});
+
   const handleInput = (event) => {
     setData((prev) => ({ ...prev, [event.target.name]: [event.target.value] }));
   };
 
-  const handleSubmit = (event) => {
+  const CheckUserDB = require("../firebase/CheckUserDB")
 
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(DataLog(data));
-    if (error.usuario === "" && error.contra === "") {
-      axios
-        .post("/login", data)
-        .then((res) => {
-          if (res.data !== "Error") {
-            Cookies.set('userData', JSON.stringify(data.usuario));
-            Cookies.set('verificado', JSON.stringify(res.data));
-            const authToken = "valido";
-            const cookieExpirationDays = 1;
-            const cookieValue = `${encodeURIComponent(
-              "authToken"
-            )}=${encodeURIComponent(authToken)}; max-age=${cookieExpirationDays * 24 * 60 * 60
-              }`;
-            document.cookie = cookieValue;
-            navigate("/home-ventas");
-          } else {
-            alert("Los datos son incorrectos");
-          }
-        })
-        .catch((err) => console.log(err));
+    if(data.usuario.length > 0 && data.contra.length > 0) {
+      let existence = await CheckUserDB.CheckUserDB(data.usuario[0], data.contra[0])
+      if(existence) {
+        console.log("Redirection")  
+      }
+    }else {
+      console.log("NO Enviar")
     }
   };
 
