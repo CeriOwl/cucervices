@@ -27,6 +27,8 @@ export const Login = () => {
       axios
         .post("/login", data)
         .then((res) => {
+          /*En caso de que los datos no regresen un error, nos dara acceso a la siguiente pestaña 
+          que es la de "Ventas" y su direccion es /home-ventas*/
           if (res.data !== "Error") {
             Cookies.set('userData', JSON.stringify(data.usuario));
             Cookies.set('verificado', JSON.stringify(res.data));
