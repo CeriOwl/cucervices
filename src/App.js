@@ -10,7 +10,6 @@ import Item from "./modulos/Item";
 import Item2 from "./modulos/Item2";
 import Verificador from "./modulos/Verificador";
 import Publicar from "./pages/Publicar";
-//import Pageinvalid from "../src/pages/Pageinvalid";
 
 
 function App() {
