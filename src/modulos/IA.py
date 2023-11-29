@@ -26,6 +26,6 @@ umbral_confianza = 50
 
 # Comparar la confianza con el umbral
 if conf < umbral_confianza:
-    print("1")
+    print(1)
 else:
-    print("0")
+    print(0)
