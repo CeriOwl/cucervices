@@ -26,6 +26,6 @@ umbral_confianza = 50
 
 # Comparar la confianza con el umbral
 if conf < umbral_confianza:
-    print("Las imagenes son de la misma persona")
+    print("1")
 else:
-    print("Las imagenes no son de la misma persona")
+    print("0")
